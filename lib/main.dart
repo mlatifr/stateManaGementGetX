@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/controllers/orang_controller.dart';
-import 'package:flutter_application_1/models/orang.dart';
+import 'package:flutter_application_1/controller/counter_controller.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -30,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final orangC = Get.put(OrangController());
+  final countC = Get.put(CounterController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'You have pushed the button this many times:',
               ),
               Text(
-                '${orangC.orang.value.nama} ',
+                ' ${countC.count.value} ',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ],
@@ -55,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          orangC.changeUpperCase();
+          countC.increment();
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
