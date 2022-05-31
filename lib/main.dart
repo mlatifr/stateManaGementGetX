@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          orang.update((val) {
+          orang.update((_) {
             orang.value.nama = orang.value.nama.toString().toUpperCase();
           });
         },
