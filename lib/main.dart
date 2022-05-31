@@ -29,32 +29,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final countC = Get.put(CounterController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Obx(
-        () => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                ' ${countC.count.value} ',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
+      body: Center(
+        child: GetX<CounterController>(
+          init: CounterController(),
+          builder: (controller) => Text(
+            'Angka ${controller.count} ',
+            style: Theme.of(context).textTheme.headline4,
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          countC.increment();
+          Get.find<CounterController>().increment();
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
