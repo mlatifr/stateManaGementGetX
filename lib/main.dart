@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/orang.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -30,6 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var orang = Orang();
   var count = 0.obs;
   void add() {
     count++;
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'You have pushed the button this many times:',
               ),
               Text(
-                '$count ',
+                '${orang.nama.value}  ',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ],
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          add();
+          orang.nama.value = "PANJUL";
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
