@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'You have pushed the button this many times:',
               ),
               Text(
-                '${orangC.orang.nama} ',
+                '${orangC.orang.value.nama} ',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ],
