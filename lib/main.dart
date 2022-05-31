@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var orang = Orang();
+  var orang = Orang(nama: "joni", umur: 20).obs;
   var count = 0.obs;
   void add() {
     count++;
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'You have pushed the button this many times:',
               ),
               Text(
-                '${orang.nama.value}  ',
+                '${orang.value.nama}  ',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ],
@@ -59,7 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          orang.nama.value = "PANJUL";
+          orang.update((val) {
+            orang.value.nama = orang.value.nama.toString().toUpperCase();
+          });
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
